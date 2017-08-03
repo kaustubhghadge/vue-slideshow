@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="website">
+<head>
+    <meta charset="utf-8">
+    <title>Slide Show</title>
+    <link rel="stylesheet" href="css/styles.css">
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
+	
+</head>
+<body>
+<h1 style="text-align: center;">Vue.js Slideshow</h1>
+<image-slider>
+ 
+    
+    <div
+       v-for="number in [currentNumber]"
+       transition="fade"
+       style="text-align:center;"
+       >
+    <img
+         :src="images[Math.abs(currentNumber) % images.length]"
+         v-on:mouseover="stopRotation"
+         v-on:mouseout="startRotation"
+         />
+  </div>
+  	<p>
+      <a @click="prev"  class="prev">Previous</a><a @click="next" class="next">Next</a>
+    </p>
+
+   
+</image-slider>
+<script type="text/javascript" src="js/vue.min.js"></script>
+	<script src="js/app.js"></script>
+
+
+</body>
+</html>
